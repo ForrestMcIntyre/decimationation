@@ -3,15 +3,30 @@ module.exports = function(grunt){
    grunt.loadNpmTasks("grunt-concurrent");
    grunt.loadNpmTasks("grunt-contrib-less");
    grunt.loadNpmTasks("grunt-contrib-watch");
+   grunt.loadNpmTasks("grunt-minified");
    grunt.loadNpmTasks("grunt-nodemon");
 
    grunt.initConfig({
+      autoprefixer: {
+         dev: {
+            expand: true,
+            flatten: true,
+            src: "src/css/**/*.css",
+            dest: "build/css/"
+         }
+      },
       concurrent: {
          dev: {
             tasks: ["watch", "nodemon"],
             options: {
                logConcurrentOutput:true
             }
+         }
+      },
+      minified: {
+         files: {
+            src: "src/js/**/*.js",
+            dest: "build/js/"
          }
       },
       nodemon: {
@@ -31,14 +46,6 @@ module.exports = function(grunt){
             }]
          }
       },
-      autoprefixer: {
-         dev: {
-            expand: true,
-            flatten: true,
-            src: "src/css/**/*.css",
-            dest: "build/css/"
-         }
-      },
       watch: {
          options: {
             livereload: true
@@ -51,6 +58,10 @@ module.exports = function(grunt){
             files: "src/**/*.css",
             tasks: ["autoprefixer"]
          },
+         js: {
+            files: "src/**/*.js",
+            tasks: ["minified"]
+         },
          html: {
             files: "**/*.html",
             tasks: []
@@ -58,5 +69,6 @@ module.exports = function(grunt){
       }
    });
 
-   grunt.registerTask("default", ["less", "autoprefixer", "concurrent"]);
+   grunt.registerTask("default", ["less", "autoprefixer", "minified", "concurrent"]);
+   grunt.registerTask("build", ["less", "autoprefixer", "minified"]);
 }
