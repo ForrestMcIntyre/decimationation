@@ -58,5 +58,5 @@ module.exports = function(grunt){
       }
    });
 
-   grunt.registerTask("default", ["autoprefixer", "less", "concurrent"]);
+   grunt.registerTask("default", ["less", "autoprefixer", "concurrent"]);
 }
