@@ -71,4 +71,5 @@ module.exports = function(grunt){
 
    grunt.registerTask("default", ["less", "autoprefixer", "minified", "concurrent"]);
    grunt.registerTask("build", ["less", "autoprefixer", "minified"]);
+   grunt.registerTask("server", ["nodemon"]);
 }
