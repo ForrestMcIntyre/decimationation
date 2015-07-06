@@ -1,14 +1,17 @@
 var hapi = require('hapi');
 
 var server = new hapi.Server();
-server.connection({port:80});
+server.connection({port:8080});
 server.start();
 
-server.route({
-   method: "GET",
-   path: "/",
-   handler: function(req, reply){
-      reply("Hello World!");
-      console.log(server.info);
-   }
+server.views({
+   engines: {
+      html: require("handlebars")
+   },
+   path: "./views/templates",
+   layoutPath: "./views",
+   layout: "default",
+   isCached: false
 });
+
+server.route(require("./server/routes.js"));
