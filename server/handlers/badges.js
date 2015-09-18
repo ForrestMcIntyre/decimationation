@@ -1,5 +1,5 @@
 module.exports = function(req, reply){
-   reply.view("badges", {
-      title: "Badge Breakdown"
-   });
+	reply.view("badges", {
+		title: "Badge Breakdown"
+	});
 }

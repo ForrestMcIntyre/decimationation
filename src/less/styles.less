@@ -1,4 +1,25 @@
-.hover {transform:scale(2)}
+html{
+   background: black;
+   color: white;
+   }
+header, footer, .container{
+   margin: 0 auto;
+   max-width: 1024px;
+}
+header h1 {
+   margin-bottom: 180px;
+}
+header div{
+   float: left;
+}
+.logo{
+   transform:rotate(0deg);
+   transition: transform 1s;
+   &.hover{
+   transform:rotate(90deg);
+   transition: transform 1s;
+   }
+}
 
 .left{
    float:left;
@@ -15,12 +36,30 @@
    width: 200px;
    text-align: right;
 }
+.parent{
+   transition: all 10s;
+   height:75px;
+   width:65px;
+   &.void{
+      height:512px;
+      width:444px;
+   }
+}
+.logo{
+   height: 200px;
+   width: 200px;
+   background-size: 200px 200px;
+   background-image: url("../images/logo.png");
+}
 .badge{
+   background-image: url("../images/badges_512.png");
+   background-size: 1318.359375px 465.8203125px;
    height: 75px;
    width: 65px;
-   background-size: 1318.359375px 465.8203125px;
-   background-image: url("../images/badges_512.png");
    background-position: -375px -150px;
+   transform-origin: top left;
+   transform: scale(1);
+   transition: transform 10s;
    &.locked{
       background-position-y: 0px;
    }
@@ -99,6 +138,8 @@
    &.blank{
       background-position-x: -1242px;
    }
-
-
+   &.click{
+      transform: scale(6.826666666666667);
+      transition: transform 10s;
+   }
 }

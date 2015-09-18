@@ -6,11 +6,12 @@ for (var i=0; i<badges.length;i++){
    var row = $("<div></div>");
    row.append('<h2>'+badgeNames[i]+"</h2>");
    for (var j=0; j<tiers.length;j++){
-      var badge = $('<div class="left badge"></div>');
-      badge.addClass(badges[i]);
-      badge.addClass(tiers[j]);
-      row.append(badge);
-      console.log(i, badges.length, j);
+    var wrap = $('<div class="left parent"></div>')
+    var badge = $('<div class="left badge"></div>');
+    badge.addClass(badges[i]);
+    badge.addClass(tiers[j]);
+    wrap.append(badge);
+    row.append(wrap);
    }
    row.addClass("badge-row");
    container.append(row);
@@ -20,7 +21,19 @@ var blocks = $(".badge");
 blocks.on("click", function(){
   var $this = $(this);
   console.log("click!!!");
-  //$this.css("transform", "scale(1.3)");
-  $(".hover").removeClass("hover");
+  $(".void").removeClass("void");
+  $(".click").removeClass("click");
+  $this.parent().addClass("void");
+  $this.addClass("click");
+});
+
+var logo = $(".logo");
+logo.on("mouseenter", function(){
+  var $this = $(this);
   $this.addClass("hover");
+  console.log("hover");
+});
+logo.on("mouseleave", function(){
+  $(".hover").removeClass("hover");
+  console.log("end hover");
 });
