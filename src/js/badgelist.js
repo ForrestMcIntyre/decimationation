@@ -20,20 +20,8 @@ for (var i=0; i<badges.length;i++){
 var blocks = $(".badge");
 blocks.on("click", function(){
   var $this = $(this);
-  console.log("click!!!");
   $(".void").removeClass("void");
   $(".click").removeClass("click");
   $this.parent().addClass("void");
   $this.addClass("click");
-});
-
-var logo = $(".logo");
-logo.on("mouseenter", function(){
-  var $this = $(this);
-  $this.addClass("hover");
-  console.log("hover");
-});
-logo.on("mouseleave", function(){
-  $(".hover").removeClass("hover");
-  console.log("end hover");
 });
