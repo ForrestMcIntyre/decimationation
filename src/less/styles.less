@@ -1,23 +1,21 @@
+@badge-scale-speed: 1s;
 html{
    background: black;
    color: white;
    }
-header, footer, .container{
+.content{
    margin: 0 auto;
    max-width: 1024px;
 }
-header h1 {
-   margin-bottom: 180px;
-}
-header div{
-   float: left;
+header, footer{
+   background-color: #111;
 }
 .logo{
    transform:rotate(0deg);
-   transition: transform 1s;
+   transition: transform .5s;
    &.hover{
    transform:rotate(90deg);
-   transition: transform 1s;
+   transition: transform .5s;
    }
 }
 
@@ -37,7 +35,7 @@ header div{
    text-align: right;
 }
 .parent{
-   transition: all 10s;
+   transition: all @badge-scale-speed;
    height:75px;
    width:65px;
    &.void{
@@ -59,7 +57,7 @@ header div{
    background-position: -375px -150px;
    transform-origin: top left;
    transform: scale(1);
-   transition: transform 10s;
+   transition: transform @badge-scale-speed;
    &.locked{
       background-position-y: 0px;
    }
@@ -140,6 +138,6 @@ header div{
    }
    &.click{
       transform: scale(6.826666666666667);
-      transition: transform 10s;
+      transition: transform @badge-scale-speed;
    }
 }

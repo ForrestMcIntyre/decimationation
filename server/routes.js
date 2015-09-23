@@ -11,14 +11,17 @@ var routes = [
    {
       method: "GET",
       path: "/",
-      handler: function(req, reply){
-         reply("Hello World!");
-      }
+      handler: require("./handlers/home")
    },
    {
       method: "GET",
       path: "/badges",
       handler: require("./handlers/badges")
+   },
+   {
+      method: "GET",
+      path: "/capsules",
+      handler: require("./handlers/capsules")
    }
 ];
 
