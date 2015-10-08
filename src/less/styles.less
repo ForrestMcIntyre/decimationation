@@ -1,4 +1,7 @@
 @badge-scale-speed: 1s;
+body{
+   margin:0;
+}
 html{
    background: black;
    color: white;
@@ -17,6 +20,36 @@ header, footer{
    transform:rotate(90deg);
    transition: transform .5s;
    }
+}
+
+.tablet a{
+   text-decoration: none;
+   color: rgb(118, 185, 0);
+   &:hover{
+      color:white;
+   }
+}
+
+figure{
+   display: inline-block;
+   vertical-align: top;
+   width:41%;
+   padding: 0% .5% 3% 0;
+}
+
+figure img{
+   width:100%;
+   height:auto;
+   border-radius: 3px;
+   box-shadow: 0 3px 6px rgba(0,0,0,0.9);
+}
+
+figure figcaption{
+   height: 2em;
+   text-align:center;
+   font-weight: bold;
+   font-family:'Flamenco';
+   font-variant: small-caps;
 }
 
 .left{

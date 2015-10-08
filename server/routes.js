@@ -22,6 +22,11 @@ var routes = [
       method: "GET",
       path: "/capsules",
       handler: require("./handlers/capsules")
+   },
+   {
+      method: "GET",
+      path: "/tablet",
+      handler: require("./handlers/tablet")
    }
 ];
 
